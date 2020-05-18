@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Find PI to the Nth Digit - 
+ * Enter a number and have the program generate PI up to that many decimal places. 
+ * Keep a limit to how far the program will go.
+ */
+
+using System;
+
 
 namespace Numbers
 {
@@ -6,7 +13,13 @@ namespace Numbers
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            String PiString = Math.PI.ToString();
+            int decimalPlaces;
+                
+            Console.WriteLine("Enter the number of decimal places you want to generate PI up to between 1 and " + (PiString.Length - 2).ToString());
+            decimalPlaces = Convert.ToInt32(Console.ReadLine());
+                
+            Console.WriteLine(PiString.Substring(0,(decimalPlaces + 2)));
         }
     }
 }
