@@ -9,7 +9,7 @@ using System;
 
 namespace Numbers
 {
-    class Program
+    class FindPiTotheNth
     {
         static void Main(string[] args)
         {
