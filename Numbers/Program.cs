@@ -18,8 +18,15 @@ namespace Numbers
                 
             Console.WriteLine("Enter the number of decimal places you want to generate PI up to between 1 and " + (PiString.Length - 2).ToString());
             decimalPlaces = Convert.ToInt32(Console.ReadLine());
-                
-            Console.WriteLine(PiString.Substring(0,(decimalPlaces + 2)));
+
+            if (decimalPlaces < 1 || decimalPlaces > PiString.Length - 2)
+            {
+                Console.WriteLine("number of decimal places inputed is not valid.");
+            }
+            else
+            {
+                Console.WriteLine(PiString.Substring(0, (decimalPlaces + 2)));
+            }
         }
     }
 }
