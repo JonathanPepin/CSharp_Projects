@@ -13,7 +13,32 @@ namespace Numbers
     {
         static void Main(string[] args)
         {
-            String PiString = Math.PI.ToString();
+            //using Archimedes method
+            double pi = 0;
+            double PolySides = 6;    //start by cutting circle with 6 triangles
+            double Sidelen = 1;      //start with 6 equilateral triangles of side = 1
+            double Dia = 2;          //Diameter of cricle or any polygon shape always 2
+            double NewSidelen;
+            double Perim;
+            double RadiusA;          //First part of radius calculation (middle to edge op polygon)
+            double RadiusB;          //Second part of radius calculation (egde of polygon to edge of circle)
+
+            while (PolySides < 18446744073709551615)  //while poly side smaller than maximum range of ulong
+            {
+                RadiusA = Math.Sqrt(1 - Math.Pow(Sidelen / 2,2));
+                RadiusB = 1 - RadiusA;
+                NewSidelen = Math.Sqrt(Math.Pow(RadiusB, 2) + Math.Pow(Sidelen / 2, 2));
+                Perim = PolySides * Sidelen;
+                pi = Perim / Dia;
+                // Console.WriteLine("PolySides = " + PolySides + "\nSidelen = " + Sidelen + "\nRadiusA = " + RadiusA + "\nRadiusB = " + RadiusB + "\nPerim = " + Perim + "\nPi approx = " + pi + "\n");
+                // Console.ReadLine();
+                PolySides = PolySides * 2;
+                Sidelen = NewSidelen;
+            }
+
+
+
+            String PiString = pi.ToString();
             int decimalPlaces;
                 
             Console.WriteLine("Enter the number of decimal places you want to generate PI up to between 1 and " + (PiString.Length - 2).ToString());
